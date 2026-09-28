@@ -356,7 +356,8 @@
         "locator": {
           "workId": "metrologia-causal",
           "section": "R*"
-        }
+        },
+        "category": "nodes"
       }
     ]
   }
