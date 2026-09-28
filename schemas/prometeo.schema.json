@@ -1,0 +1,747 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kagenomusuko-svg/prometeo-esquema/schemas/prometeo.schema.json",
+  "title": "Contratos iniciales del ecosistema Prometeo",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/Case"
+    },
+    {
+      "$ref": "#/$defs/SourceFragment"
+    },
+    {
+      "$ref": "#/$defs/SourceDocument"
+    },
+    {
+      "$ref": "#/$defs/Proposition"
+    },
+    {
+      "$ref": "#/$defs/SemanticCandidate"
+    },
+    {
+      "$ref": "#/$defs/Hypothesis"
+    },
+    {
+      "$ref": "#/$defs/AnalystDecision"
+    },
+    {
+      "$ref": "#/$defs/ConfirmedModel"
+    },
+    {
+      "$ref": "#/$defs/MotorRequest"
+    },
+    {
+      "$ref": "#/$defs/CalculationTrace"
+    },
+    {
+      "$ref": "#/$defs/MotorResult"
+    },
+    {
+      "$ref": "#/$defs/ReportModel"
+    }
+  ],
+  "$defs": {
+    "Id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "DateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "Provenance": {
+      "type": "object",
+      "required": [
+        "kind",
+        "actorId",
+        "recordedAt"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "source",
+            "language-agent",
+            "human",
+            "deterministic-system",
+            "prometeo-motor-calculo"
+          ]
+        },
+        "actorId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recordedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sourceObjectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceVersion": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SourceSpan": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "unit"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unit": {
+          "enum": [
+            "character",
+            "token",
+            "line"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Case": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "purpose",
+        "state",
+        "sourceDocumentIds",
+        "hypothesisIds",
+        "confirmedModelIds",
+        "decisionIds",
+        "version",
+        "createdAt",
+        "updatedAt",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "enum": [
+            "draft",
+            "in_review",
+            "confirmed",
+            "calculated",
+            "reported",
+            "closed"
+          ]
+        },
+        "sourceDocumentIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "hypothesisIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "confirmedModelIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "decisionIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "version": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SourceFragment": {
+      "type": "object",
+      "required": [
+        "id",
+        "documentId",
+        "ordinal",
+        "text",
+        "span",
+        "locator",
+        "hash",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "documentId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string"
+        },
+        "span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "locator": {
+          "type": "object"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SourceDocument": {
+      "type": "object",
+      "required": [
+        "id",
+        "caseId",
+        "mediaType",
+        "originalText",
+        "contentHash",
+        "fragments",
+        "state",
+        "warnings",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "originalText": {
+          "type": "string"
+        },
+        "contentHash": {
+          "type": "string"
+        },
+        "fragments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SourceFragment"
+          }
+        },
+        "state": {
+          "enum": [
+            "draft",
+            "normalized",
+            "blocked",
+            "error"
+          ]
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Proposition": {
+      "type": "object",
+      "required": [
+        "id",
+        "fragmentId",
+        "text",
+        "modality",
+        "state",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fragmentId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string"
+        },
+        "modality": {
+          "enum": [
+            "asserted",
+            "reported",
+            "inferred",
+            "possible",
+            "obligatory",
+            "denied",
+            "unknown"
+          ]
+        },
+        "state": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "rejected"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SemanticCandidate": {
+      "type": "object",
+      "required": [
+        "id",
+        "propositionId",
+        "category",
+        "label",
+        "attributes",
+        "state",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "propositionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "enum": [
+            "actor",
+            "event",
+            "state",
+            "condition",
+            "relation",
+            "omission"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "object"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "ambiguity": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "rejected"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Hypothesis": {
+      "type": "object",
+      "required": [
+        "id",
+        "caseId",
+        "label",
+        "candidateIds",
+        "relationIds",
+        "status",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string"
+        },
+        "candidateIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "relationIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "selected",
+            "rejected",
+            "superseded"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AnalystDecision": {
+      "type": "object",
+      "required": [
+        "id",
+        "caseId",
+        "action",
+        "targetObjectId",
+        "previousVersion",
+        "resultingObjectId",
+        "resultingVersion",
+        "decidedBy",
+        "decidedAt",
+        "reason",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "enum": [
+            "accept",
+            "reject",
+            "modify",
+            "split",
+            "merge",
+            "confirm"
+          ]
+        },
+        "targetObjectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previousVersion": {
+          "type": "string"
+        },
+        "resultingObjectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resultingVersion": {
+          "type": "string"
+        },
+        "decidedBy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decidedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ConfirmedModel": {
+      "type": "object",
+      "required": [
+        "id",
+        "caseId",
+        "version",
+        "nodes",
+        "relations",
+        "decisions",
+        "state",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string"
+        },
+        "nodes": {
+          "type": "array"
+        },
+        "relations": {
+          "type": "array"
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "state": {
+          "enum": [
+            "confirmed",
+            "superseded"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "MotorRequest": {
+      "type": "object",
+      "required": [
+        "id",
+        "modelId",
+        "modelVersion",
+        "formulaId",
+        "formulaVersion",
+        "parameters",
+        "discipline",
+        "createdBy",
+        "createdAt",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "modelId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "modelVersion": {
+          "type": "string"
+        },
+        "formulaId": {
+          "type": "string"
+        },
+        "formulaVersion": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "discipline": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CalculationTrace": {
+      "type": "object",
+      "required": [
+        "id",
+        "requestId",
+        "steps",
+        "reproducibilityHash",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "steps": {
+          "type": "array"
+        },
+        "reproducibilityHash": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "MotorResult": {
+      "type": "object",
+      "required": [
+        "id",
+        "requestId",
+        "formulaId",
+        "formulaVersion",
+        "inputs",
+        "result",
+        "traceId",
+        "motorVersion",
+        "calculatedAt",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "formulaId": {
+          "type": "string"
+        },
+        "formulaVersion": {
+          "type": "string"
+        },
+        "inputs": {
+          "type": "object"
+        },
+        "result": {
+          "type": "object"
+        },
+        "traceId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "motorVersion": {
+          "type": "string"
+        },
+        "calculatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReportModel": {
+      "type": "object",
+      "required": [
+        "id",
+        "caseId",
+        "modelId",
+        "motorResultId",
+        "sections",
+        "generatedAt",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "modelId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "motorResultId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sections": {
+          "type": "array"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
