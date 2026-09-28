@@ -683,7 +683,14 @@
           "type": "object"
         },
         "result": {
-          "type": "object"
+          "oneOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "traceId": {
           "type": "string",

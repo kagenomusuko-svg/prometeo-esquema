@@ -17,7 +17,7 @@ assert.equal(fixture.candidate.provenance.kind,"language-agent");
 assert.equal(fixture.model.state,"confirmed");
 assert.deepEqual(fixture.model.decisions,["decision-1"]);
 assert.equal(fixture.request.provenance.sourceObjectId,"model-1");
-assert.equal(fixture.result.traceId,"trace-1");
+assert.equal(fixture.result.traceId,"trace-1");\n\nconst vertical = JSON.parse(fs.readFileSync(path.join(root,"tests/fixtures/canonical-vertical-slice.json"),"utf8"));\nassert.equal(vertical.proposition.state,"proposed");\nassert.equal(vertical.candidate.provenance.kind,"language-agent");\nassert.equal(vertical.model.provenance.kind,"human");\nassert.ok(Array.isArray(vertical.result.result));\nassert.equal(vertical.result.traceId,vertical.trace.id);
 
 const attemptedPromotion={...fixture.candidate,state:"confirmed"};
 assert.throws(()=>{

@@ -1,0 +1,214 @@
+{
+  "sourceDocument": {
+    "id": "document-vertical-001",
+    "caseId": "case-vertical-001",
+    "mediaType": "text/plain",
+    "originalText": "A realizó X y se reporta un resultado Y.",
+    "contentHash": "sha256:source-vertical-001",
+    "fragments": [
+      {
+        "id": "document-vertical-001:fragment:1",
+        "documentId": "document-vertical-001",
+        "ordinal": 0,
+        "text": "A realizó X y se reporta un resultado Y.",
+        "span": {
+          "start": 0,
+          "end": 39,
+          "unit": "character"
+        },
+        "locator": {
+          "line": 1
+        },
+        "hash": "sha256:fragment-vertical-001",
+        "provenance": {
+          "kind": "source",
+          "actorId": "prometeo-ingesta",
+          "recordedAt": "2026-09-28T18:00:00Z",
+          "sourceObjectId": "document-vertical-001",
+          "sourceVersion": "1.0.0"
+        }
+      }
+    ],
+    "state": "normalized",
+    "warnings": [],
+    "provenance": {
+      "kind": "source",
+      "actorId": "prometeo-ingesta",
+      "recordedAt": "2026-09-28T18:00:00Z",
+      "sourceObjectId": "document-vertical-001",
+      "sourceVersion": "1.0.0"
+    }
+  },
+  "proposition": {
+    "id": "proposition-vertical-001",
+    "fragmentId": "document-vertical-001:fragment:1",
+    "text": "A realizó X y se reporta un resultado Y.",
+    "modality": "reported",
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "prometeo-lenguaje",
+      "recordedAt": "2026-09-28T18:01:00Z",
+      "sourceObjectId": "document-vertical-001:fragment:1"
+    }
+  },
+  "candidate": {
+    "id": "candidate-vertical-001",
+    "propositionId": "proposition-vertical-001",
+    "category": "relation",
+    "label": "X podría relacionarse con Y",
+    "attributes": {
+      "from": "X",
+      "to": "Y"
+    },
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "prometeo-lenguaje",
+      "recordedAt": "2026-09-28T18:01:00Z",
+      "sourceObjectId": "proposition-vertical-001"
+    }
+  },
+  "hypothesis": {
+    "id": "hypothesis-vertical-001",
+    "caseId": "case-vertical-001",
+    "label": "H1",
+    "candidateIds": [
+      "candidate-vertical-001"
+    ],
+    "relationIds": [],
+    "status": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "prometeo-lenguaje",
+      "recordedAt": "2026-09-28T18:01:00Z",
+      "sourceObjectId": "candidate-vertical-001"
+    }
+  },
+  "decision": {
+    "id": "decision-vertical-001",
+    "caseId": "case-vertical-001",
+    "action": "confirm",
+    "targetObjectId": "hypothesis-vertical-001",
+    "previousVersion": "none",
+    "resultingObjectId": "model-vertical-001",
+    "resultingVersion": "1.0.0",
+    "decidedBy": "analyst-vertical-001",
+    "decidedAt": "2026-09-28T18:02:00Z",
+    "reason": "Confirmación explícita para proyección",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-vertical-001",
+      "recordedAt": "2026-09-28T18:02:00Z",
+      "sourceObjectId": "hypothesis-vertical-001",
+      "sourceVersion": "none"
+    }
+  },
+  "model": {
+    "id": "model-vertical-001",
+    "caseId": "case-vertical-001",
+    "version": "1.0.0",
+    "nodes": [
+      {
+        "id": "A"
+      },
+      {
+        "id": "Y"
+      }
+    ],
+    "relations": [
+      {
+        "from": "A",
+        "to": "Y",
+        "type": "confirmed"
+      }
+    ],
+    "decisions": [
+      "decision-vertical-001"
+    ],
+    "state": "confirmed",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-vertical-001",
+      "recordedAt": "2026-09-28T18:02:00Z",
+      "sourceObjectId": "decision-vertical-001",
+      "sourceVersion": "1.0.0"
+    }
+  },
+  "request": {
+    "id": "request-vertical-001",
+    "modelId": "model-vertical-001",
+    "modelVersion": "1.0.0",
+    "formulaId": "delta",
+    "formulaVersion": "0.1.0",
+    "parameters": {
+      "r_star": [
+        "1",
+        "0"
+      ],
+      "alpha": [
+        "0",
+        "0"
+      ]
+    },
+    "discipline": "universal",
+    "createdBy": "prometeo-proyeccion",
+    "createdAt": "2026-09-28T18:03:00Z",
+    "provenance": {
+      "kind": "deterministic-system",
+      "actorId": "prometeo-proyeccion",
+      "recordedAt": "2026-09-28T18:03:00Z",
+      "sourceObjectId": "model-vertical-001",
+      "sourceVersion": "1.0.0"
+    }
+  },
+  "trace": {
+    "id": "trace-vertical-001",
+    "requestId": "request-vertical-001",
+    "steps": [],
+    "reproducibilityHash": "sha256:trace-vertical-001",
+    "provenance": {
+      "kind": "prometeo-motor-calculo",
+      "actorId": "prometeo-motor-calculo",
+      "recordedAt": "2026-09-28T18:04:00Z",
+      "sourceObjectId": "request-vertical-001",
+      "sourceVersion": "motor.py@432ac9578da8862d6605b18071576af02b042bce"
+    }
+  },
+  "result": {
+    "id": "result-vertical-001",
+    "requestId": "request-vertical-001",
+    "formulaId": "delta",
+    "formulaVersion": "0.1.0",
+    "inputs": {
+      "r_star": [
+        "1",
+        "0"
+      ],
+      "alpha": [
+        "0",
+        "0"
+      ]
+    },
+    "result": [
+      {
+        "numerator": 1,
+        "denominator": 1
+      },
+      {
+        "numerator": 0,
+        "denominator": 1
+      }
+    ],
+    "traceId": "trace-vertical-001",
+    "motorVersion": "motor.py@432ac9578da8862d6605b18071576af02b042bce",
+    "calculatedAt": "2026-09-28T18:04:00Z",
+    "provenance": {
+      "kind": "prometeo-motor-calculo",
+      "actorId": "prometeo-motor-calculo",
+      "recordedAt": "2026-09-28T18:04:00Z",
+      "sourceObjectId": "request-vertical-001",
+      "sourceVersion": "1.0.0"
+    }
+  }
+}
