@@ -1,10 +1,10 @@
 {
   "name": "prometeo-esquema",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "type": "module",
   "scripts": {
-    "test": "node tests/contract-checks.mjs && node tests/schema-validation.mjs && node tests/cross-repository-checks.mjs"
+    "test": "node tests/contract-checks.mjs && node tests/schema-validation.mjs && node tests/contract-version.test.mjs && node tests/cross-repository-checks.mjs"
   },
   "engines": {
     "node": ">=20"

@@ -1,0 +1,14 @@
+{
+  "contractId": "prometeo-contracts",
+  "contractVersion": "0.2.0",
+  "schemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "schemaPath": "schemas/prometeo.schema.json",
+  "sourceRepository": "kagenomusuko-svg/prometeo-esquema",
+  "compatibility": {
+    "supersedes": "0.1.x",
+    "breakingChanges": [
+      "ReportModel.contextReferences is now normative and required",
+      "ContextReference requires category, locator, evidenceStatus, mapVersion and sourceRef"
+    ]
+  }
+}
