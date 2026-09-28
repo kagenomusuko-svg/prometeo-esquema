@@ -1,1 +1,16 @@
-{"name":"prometeo-esquema","version":"0.1.0","private":false,"type":"module","scripts":{"test":"node tests/contract-checks.mjs && node tests/cross-repository-checks.mjs"},"engines":{"node":">=20"}}
+{
+  "name": "prometeo-esquema",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/contract-checks.mjs && node tests/schema-validation.mjs && node tests/cross-repository-checks.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

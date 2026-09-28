@@ -9,8 +9,10 @@ No contiene lógica de negocio, interpretación lingüística ni cálculos. Defi
 - `schemas/prometeo.schema.json`: JSON Schema canónico.
 - `src/index.ts`: tipos compartidos.
 - `docs/CONTRACTOS_INICIALES.md`: reglas y ciclo de vida.
-- `tests/`: fixture canónico y pruebas estructurales.
+- `docs/VALIDACION_SCHEMA.md`: validación ejecutable Draft 2020-12.
+- `tests/`: fixtures y gates contractuales.
 
 ```bash
+npm install
 npm test
 ```
