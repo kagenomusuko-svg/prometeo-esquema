@@ -46,7 +46,7 @@ required(chain.trace, [
   "id", "requestId", "steps", "reproducibilityHash", "provenance",
 ], "CalculationTrace");
 required(chain.report, [
-  "id", "caseId", "modelId", "motorResultId", "sections", "generatedAt", "provenance",
+  "id", "caseId", "modelId", "motorResultId", "contextReferences", "sections", "generatedAt", "provenance",
 ], "ReportModel");
 required(chain.result, [
   "id", "requestId", "formulaId", "formulaVersion", "inputs", "result",
@@ -67,6 +67,8 @@ assert.ok(Array.isArray(chain.result.result));
 assert.equal(chain.report.caseId, chain.sourceDocument.caseId);
 assert.equal(chain.report.modelId, chain.model.id);
 assert.equal(chain.report.motorResultId, chain.result.id);
+assert.equal(chain.report.contextReferences[0].sourceRef, "kagenomusuko-svg/Paradigma@map-commit");
+assert.deepEqual(chain.report.sections.find((section) => section.id === "context").references, chain.report.contextReferences);
 assert.equal(chain.report.provenance.sourceObjectId, chain.result.id);
 assert.deepEqual(chain.report.sections.map((section) => section.id).slice(0, 5), ["source", "proposals", "decision", "model", "context"]);
 assert.equal(chain.report.sections.find((section) => section.id === "context").references[0].sourceRef, "kagenomusuko-svg/Paradigma@map-commit");

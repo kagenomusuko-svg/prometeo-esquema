@@ -14,5 +14,6 @@ export interface ConfirmedModel { id: Id; caseId: Id; version: string; nodes: un
 export interface MotorRequest { id: Id; modelId: Id; modelVersion: string; formulaId: string; formulaVersion: string; parameters: Record<string, unknown>; discipline: string; createdBy: Id; createdAt: string; provenance: Provenance; }
 export interface CalculationTrace { id: Id; requestId: Id; steps: unknown[]; reproducibilityHash: string; provenance: Provenance; }
 export interface MotorResult { id: Id; requestId: Id; formulaId: string; formulaVersion: string; inputs: Record<string, unknown>; result: Record<string, unknown>; traceId: Id; motorVersion: string; calculatedAt: string; provenance: Provenance; }
-export interface ReportModel { id: Id; caseId: Id; modelId: Id; motorResultId: Id; sections: unknown[]; generatedAt: string; provenance: Provenance; }
+export interface ContextReference { id: Id; category: string; locator: Record<string, unknown> | null; evidenceStatus: string; mapVersion: string; sourceRef: string; }
+export interface ReportModel { id: Id; caseId: Id; modelId: Id; motorResultId: Id; contextReferences: ContextReference[]; sections: unknown[]; generatedAt: string; provenance: Provenance; }
 export interface Case { id: Id; title: string; purpose: string; state: "draft"|"in_review"|"confirmed"|"calculated"|"reported"|"closed"; sourceDocumentIds: Id[]; hypothesisIds: Id[]; confirmedModelIds: Id[]; decisionIds: Id[]; version: string; createdAt: string; updatedAt: string; provenance: Provenance; }

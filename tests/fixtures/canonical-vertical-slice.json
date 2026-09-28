@@ -346,6 +346,18 @@
       "sourceObjectId": "result-vertical-001",
       "sourceVersion": "motor.py@432ac9578da8862d6605b18071576af02b042bce",
       "reason": "Report assembled from MotorResult and CalculationTrace"
-    }
+    },
+    "contextReferences": [
+      {
+        "id": "node-r-star",
+        "mapVersion": "f1-test",
+        "sourceRef": "kagenomusuko-svg/Paradigma@map-commit",
+        "evidenceStatus": "explicit",
+        "locator": {
+          "workId": "metrologia-causal",
+          "section": "R*"
+        }
+      }
+    ]
   }
 }

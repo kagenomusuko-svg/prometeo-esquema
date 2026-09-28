@@ -37,6 +37,9 @@
       "$ref": "#/$defs/MotorResult"
     },
     {
+      "$ref": "#/$defs/ContextReference"
+    },
+    {
       "$ref": "#/$defs/ReportModel"
     }
   ],
@@ -709,6 +712,46 @@
       },
       "additionalProperties": false
     },
+    "ContextReference": {
+      "type": "object",
+      "required": [
+        "id",
+        "category",
+        "locator",
+        "evidenceStatus",
+        "mapVersion",
+        "sourceRef"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "evidenceStatus": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mapVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
     "ReportModel": {
       "type": "object",
       "required": [
@@ -716,6 +759,7 @@
         "caseId",
         "modelId",
         "motorResultId",
+        "contextReferences",
         "sections",
         "generatedAt",
         "provenance"
@@ -746,6 +790,12 @@
         },
         "provenance": {
           "$ref": "#/$defs/Provenance"
+        },
+        "contextReferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContextReference"
+          }
         }
       },
       "additionalProperties": false
