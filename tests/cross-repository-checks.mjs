@@ -53,6 +53,10 @@ required(chain.result, [
   "traceId", "motorVersion", "calculatedAt", "provenance",
 ], "MotorResult");
 
+assert.equal(chain.contract.contractId, "prometeo-contracts");
+assert.equal(chain.contract.contractVersion, "0.2.0");
+assert.equal(chain.contract.sourceRepository, "kagenomusuko-svg/prometeo-esquema");
+assert.equal(chain.contract.manifestRef, "contracts/manifest.json@0.2.0");
 assert.equal(chain.sourceDocument.state, "normalized");
 assert.equal(chain.proposition.state, "proposed");
 assert.equal(chain.candidate.state, "proposed");
