@@ -570,6 +570,30 @@
         },
         "provenance": {
           "$ref": "#/$defs/Provenance"
+        },
+        "history": {
+          "type": "object",
+          "required": [
+            "previousModelId",
+            "previousModelVersion",
+            "decisionId"
+          ],
+          "properties": {
+            "previousModelId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "previousModelVersion": {
+              "type": "string"
+            },
+            "decisionId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
