@@ -218,6 +218,22 @@
     "motorResultId": "result-vertical-001",
     "sections": [
       {
+        "id": "context",
+        "type": "context-references",
+        "references": [
+          {
+            "id": "node-r-star",
+            "mapVersion": "f1-test",
+            "sourceRef": "kagenomusuko-svg/Paradigma@map-commit",
+            "evidenceStatus": "explicit",
+            "locator": {
+              "workId": "metrologia-causal",
+              "section": "R*"
+            }
+          }
+        ]
+      },
+      {
         "id": "summary",
         "type": "calculation-summary",
         "formulaId": "delta",
