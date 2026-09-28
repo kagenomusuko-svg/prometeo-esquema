@@ -17,3 +17,5 @@ export interface MotorResult { id: Id; requestId: Id; formulaId: string; formula
 export interface ContextReference { id: Id; category: string; locator: Record<string, unknown> | null; evidenceStatus: string; mapVersion: string; sourceRef: string; }
 export interface ReportModel { id: Id; caseId: Id; modelId: Id; motorResultId: Id; contextReferences: ContextReference[]; sections: unknown[]; generatedAt: string; provenance: Provenance; }
 export interface Case { id: Id; title: string; purpose: string; state: "draft"|"in_review"|"confirmed"|"calculated"|"reported"|"closed"; sourceDocumentIds: Id[]; hypothesisIds: Id[]; confirmedModelIds: Id[]; decisionIds: Id[]; version: string; createdAt: string; updatedAt: string; provenance: Provenance; }
+
+export interface CaseEvent { id: Id; caseId: Id; sequence: number; action: "create"|"accept"|"reject"|"modify"|"split"|"merge"|"confirm"|"calculate"|"report"|"close"; objectType: string; objectId: Id; previousState: string; resultingState: string; previousVersion: string; resultingVersion: string; occurredAt: string; reason: string; provenance: Provenance; }

@@ -41,6 +41,9 @@
     },
     {
       "$ref": "#/$defs/ReportModel"
+    },
+    {
+      "$ref": "#/$defs/CaseEvent"
     }
   ],
   "$defs": {
@@ -796,6 +799,83 @@
           "items": {
             "$ref": "#/$defs/ContextReference"
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "CaseEvent": {
+      "type": "object",
+      "required": [
+        "id",
+        "caseId",
+        "sequence",
+        "action",
+        "objectType",
+        "objectId",
+        "previousState",
+        "resultingState",
+        "previousVersion",
+        "resultingVersion",
+        "occurredAt",
+        "reason",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "action": {
+          "enum": [
+            "create",
+            "accept",
+            "reject",
+            "modify",
+            "split",
+            "merge",
+            "confirm",
+            "calculate",
+            "report",
+            "close"
+          ]
+        },
+        "objectType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "objectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previousState": {
+          "type": "string"
+        },
+        "resultingState": {
+          "type": "string"
+        },
+        "previousVersion": {
+          "type": "string"
+        },
+        "resultingVersion": {
+          "type": "string"
+        },
+        "occurredAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
         }
       },
       "additionalProperties": false
