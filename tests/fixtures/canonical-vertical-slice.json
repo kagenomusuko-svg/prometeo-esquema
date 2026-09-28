@@ -210,5 +210,66 @@
       "sourceObjectId": "request-vertical-001",
       "sourceVersion": "1.0.0"
     }
+  },
+  "report": {
+    "id": "report-vertical-001",
+    "caseId": "case-vertical-001",
+    "modelId": "model-vertical-001",
+    "motorResultId": "result-vertical-001",
+    "sections": [
+      {
+        "id": "summary",
+        "type": "calculation-summary",
+        "formulaId": "delta",
+        "formulaVersion": "0.1.0",
+        "requestId": "request-vertical-001",
+        "motorVersion": "motor.py@432ac9578da8862d6605b18071576af02b042bce",
+        "calculatedAt": "2026-09-28T18:04:00Z"
+      },
+      {
+        "id": "inputs",
+        "type": "motor-inputs",
+        "value": {
+          "r_star": [
+            "1",
+            "0"
+          ],
+          "alpha": [
+            "0",
+            "0"
+          ]
+        }
+      },
+      {
+        "id": "result",
+        "type": "motor-result",
+        "value": [
+          {
+            "numerator": 1,
+            "denominator": 1
+          },
+          {
+            "numerator": 0,
+            "denominator": 1
+          }
+        ]
+      },
+      {
+        "id": "trace",
+        "type": "calculation-trace",
+        "traceId": "trace-vertical-001",
+        "reproducibilityHash": "sha256:trace-vertical-001",
+        "steps": []
+      }
+    ],
+    "generatedAt": "2026-09-28T18:05:00Z",
+    "provenance": {
+      "kind": "deterministic-system",
+      "actorId": "prometeo-informe",
+      "recordedAt": "2026-09-28T18:05:00Z",
+      "sourceObjectId": "result-vertical-001",
+      "sourceVersion": "motor.py@432ac9578da8862d6605b18071576af02b042bce",
+      "reason": "Report assembled from MotorResult and CalculationTrace"
+    }
   }
 }

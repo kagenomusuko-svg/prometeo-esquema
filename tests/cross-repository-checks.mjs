@@ -45,6 +45,9 @@ required(chain.request, [
 required(chain.trace, [
   "id", "requestId", "steps", "reproducibilityHash", "provenance",
 ], "CalculationTrace");
+required(chain.report, [
+  "id", "caseId", "modelId", "motorResultId", "sections", "generatedAt", "provenance",
+], "ReportModel");
 required(chain.result, [
   "id", "requestId", "formulaId", "formulaVersion", "inputs", "result",
   "traceId", "motorVersion", "calculatedAt", "provenance",
@@ -61,5 +64,9 @@ assert.equal(chain.trace.requestId, chain.request.id);
 assert.equal(chain.result.requestId, chain.request.id);
 assert.equal(chain.result.traceId, chain.trace.id);
 assert.ok(Array.isArray(chain.result.result));
+assert.equal(chain.report.caseId, chain.sourceDocument.caseId);
+assert.equal(chain.report.modelId, chain.model.id);
+assert.equal(chain.report.motorResultId, chain.result.id);
+assert.equal(chain.report.provenance.sourceObjectId, chain.result.id);
 
 console.log("PASS: gate transversal de contratos Prometeo");
