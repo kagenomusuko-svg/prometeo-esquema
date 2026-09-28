@@ -15,4 +15,6 @@ Campos obligatorios:
 - proveniencia;
 - secuencia dentro del caso.
 
+Para una sustitución versionada, `previousObjectId` identifica explícitamente el objeto anterior. Es opcional en la primera creación o cuando una misma identidad conserva sus versiones.
+
 La secuencia debe ser creciente y no puede mezclar eventos de casos distintos.

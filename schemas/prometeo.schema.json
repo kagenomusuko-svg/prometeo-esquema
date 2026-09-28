@@ -876,6 +876,10 @@
         },
         "provenance": {
           "$ref": "#/$defs/Provenance"
+        },
+        "previousObjectId": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "additionalProperties": false
