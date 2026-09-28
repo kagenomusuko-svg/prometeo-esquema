@@ -1,4 +1,4 @@
-# Auditoría de interfaz con prometeо-motor-calculo
+# Auditoría de interfaz con prometeo-motor-calculo
 
 **Fecha:** 2026-09-28  
 **Estado:** auditoría inicial, sin modificación del motor.
