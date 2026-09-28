@@ -218,6 +218,66 @@
     "motorResultId": "result-vertical-001",
     "sections": [
       {
+        "id": "model",
+        "type": "confirmed-model",
+        "value": {
+          "id": "model-vertical-001",
+          "caseId": "case-vertical-001",
+          "version": "1.0.0",
+          "state": "confirmed",
+          "decisionIds": [
+            "decision-vertical-001"
+          ]
+        }
+      },
+      {
+        "id": "decision",
+        "type": "human-decision",
+        "value": {
+          "id": "decision-vertical-001",
+          "caseId": "case-vertical-001",
+          "action": "confirm",
+          "decidedBy": "analyst-vertical-001",
+          "provenance": {
+            "kind": "human",
+            "actorId": "analyst-vertical-001",
+            "recordedAt": "2026-09-28T18:02:00Z",
+            "sourceObjectId": "hypothesis-vertical-001",
+            "sourceVersion": "none"
+          }
+        }
+      },
+      {
+        "id": "proposals",
+        "type": "language-proposals",
+        "value": {
+          "documentId": "document-vertical-001",
+          "propositionIds": [
+            "proposition-vertical-001"
+          ],
+          "candidateIds": [
+            "candidate-vertical-001"
+          ],
+          "hypothesisIds": [
+            "hypothesis-vertical-001"
+          ],
+          "requiresHumanConfirmation": true
+        }
+      },
+      {
+        "id": "source",
+        "type": "source-document",
+        "value": {
+          "id": "document-vertical-001",
+          "caseId": "case-vertical-001",
+          "state": "normalized",
+          "contentHash": "sha256:source-vertical-001",
+          "fragmentIds": [
+            "document-vertical-001:fragment:1"
+          ]
+        }
+      },
+      {
         "id": "context",
         "type": "context-references",
         "references": [

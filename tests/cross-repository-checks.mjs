@@ -68,7 +68,7 @@ assert.equal(chain.report.caseId, chain.sourceDocument.caseId);
 assert.equal(chain.report.modelId, chain.model.id);
 assert.equal(chain.report.motorResultId, chain.result.id);
 assert.equal(chain.report.provenance.sourceObjectId, chain.result.id);
-assert.equal(chain.report.sections.find((section) => section.id === "context").type, "context-references");
+assert.deepEqual(chain.report.sections.map((section) => section.id).slice(0, 5), ["source", "proposals", "decision", "model", "context"]);
 assert.equal(chain.report.sections.find((section) => section.id === "context").references[0].sourceRef, "kagenomusuko-svg/Paradigma@map-commit");
 
 console.log("PASS: gate transversal de contratos Prometeo");
