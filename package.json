@@ -4,7 +4,7 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "test": "node tests/contract-checks.mjs && node tests/schema-validation.mjs && node tests/contract-version.test.mjs && node tests/compatibility-regression.test.mjs && node tests/cross-repository-checks.mjs && node tests/runtime-shapes.test.mjs"
+    "test": "node tests/contract-checks.mjs && node tests/schema-validation.mjs && node tests/contract-version.test.mjs && node tests/compatibility-regression.test.mjs && node tests/cross-repository-checks.mjs && node tests/runtime-shapes.test.mjs && node tests/heterogeneous-domains.test.mjs"
   },
   "engines": {
     "node": ">=20"
