@@ -1,0 +1,125 @@
+{
+  "case": {
+    "id": "case-emotional-001",
+    "title": "Conflicto afectivo y retirada",
+    "purpose": "Describir una secuencia emocional sin convertir una vivencia en diagnóstico.",
+    "state": "confirmed",
+    "sourceDocumentIds": [
+      "document-emotional-001"
+    ],
+    "hypothesisIds": [
+      "hypothesis-emotional-001"
+    ],
+    "confirmedModelIds": [
+      "model-emotional-001"
+    ],
+    "decisionIds": [
+      "decision-emotional-001"
+    ],
+    "version": "1.0.0",
+    "createdAt": "2026-09-29T12:00:00Z",
+    "updatedAt": "2026-09-29T12:05:00Z",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-emotional",
+      "recordedAt": "2026-09-29T12:05:00Z",
+      "sourceObjectId": "decision-emotional-001"
+    }
+  },
+  "proposition": {
+    "id": "proposition-emotional-001",
+    "fragmentId": "fragment-emotional-001",
+    "text": "La persona refiere sentirse desplazada y dejó de participar en la conversación.",
+    "modality": "reported",
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-emotional",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "fragment-emotional-001"
+    }
+  },
+  "candidate": {
+    "id": "candidate-emotional-001",
+    "propositionId": "proposition-emotional-001",
+    "category": "state",
+    "label": "retirada conversacional referida",
+    "attributes": {
+      "affect": "displacement",
+      "interaction": "conversation-1"
+    },
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-emotional",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "proposition-emotional-001"
+    }
+  },
+  "hypothesis": {
+    "id": "hypothesis-emotional-001",
+    "caseId": "case-emotional-001",
+    "label": "Hipótesis emotional",
+    "candidateIds": [
+      "candidate-emotional-001"
+    ],
+    "relationIds": [],
+    "status": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-emotional",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "candidate-emotional-001"
+    }
+  },
+  "decision": {
+    "id": "decision-emotional-001",
+    "caseId": "case-emotional-001",
+    "action": "confirm",
+    "targetObjectId": "hypothesis-emotional-001",
+    "previousVersion": "none",
+    "resultingObjectId": "model-emotional-001",
+    "resultingVersion": "1.0.0",
+    "decidedBy": "analyst-emotional",
+    "decidedAt": "2026-09-29T12:04:00Z",
+    "reason": "Confirmación explícita del caso para evaluación contractual.",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-emotional",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "hypothesis-emotional-001",
+      "sourceVersion": "none"
+    }
+  },
+  "model": {
+    "id": "model-emotional-001",
+    "caseId": "case-emotional-001",
+    "version": "1.0.0",
+    "nodes": [
+      {
+        "id": "person-1"
+      },
+      {
+        "id": "conversation-1"
+      }
+    ],
+    "relations": [
+      {
+        "from": "person-1",
+        "to": "conversation-1",
+        "type": "reported-emotional-state"
+      }
+    ],
+    "decisions": [
+      "decision-emotional-001"
+    ],
+    "state": "confirmed",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-emotional",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "decision-emotional-001",
+      "sourceVersion": "none"
+    }
+  }
+}
