@@ -1,0 +1,125 @@
+{
+  "case": {
+    "id": "case-institutional-001",
+    "title": "Aplicación de un protocolo público",
+    "purpose": "Examinar la aplicación institucional de un protocolo frente a una solicitud.",
+    "state": "confirmed",
+    "sourceDocumentIds": [
+      "document-institutional-001"
+    ],
+    "hypothesisIds": [
+      "hypothesis-institutional-001"
+    ],
+    "confirmedModelIds": [
+      "model-institutional-001"
+    ],
+    "decisionIds": [
+      "decision-institutional-001"
+    ],
+    "version": "1.0.0",
+    "createdAt": "2026-09-29T12:00:00Z",
+    "updatedAt": "2026-09-29T12:05:00Z",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-institutional",
+      "recordedAt": "2026-09-29T12:05:00Z",
+      "sourceObjectId": "decision-institutional-001"
+    }
+  },
+  "proposition": {
+    "id": "proposition-institutional-001",
+    "fragmentId": "fragment-institutional-001",
+    "text": "La oficina aplicó el protocolo vigente y remitió la solicitud a la autoridad competente.",
+    "modality": "asserted",
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-institutional",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "fragment-institutional-001"
+    }
+  },
+  "candidate": {
+    "id": "candidate-institutional-001",
+    "propositionId": "proposition-institutional-001",
+    "category": "event",
+    "label": "remisión protocolaria",
+    "attributes": {
+      "office": "office-3",
+      "protocol": "protocol-2026"
+    },
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-institutional",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "proposition-institutional-001"
+    }
+  },
+  "hypothesis": {
+    "id": "hypothesis-institutional-001",
+    "caseId": "case-institutional-001",
+    "label": "Hipótesis institutional",
+    "candidateIds": [
+      "candidate-institutional-001"
+    ],
+    "relationIds": [],
+    "status": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-institutional",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "candidate-institutional-001"
+    }
+  },
+  "decision": {
+    "id": "decision-institutional-001",
+    "caseId": "case-institutional-001",
+    "action": "confirm",
+    "targetObjectId": "hypothesis-institutional-001",
+    "previousVersion": "none",
+    "resultingObjectId": "model-institutional-001",
+    "resultingVersion": "1.0.0",
+    "decidedBy": "analyst-institutional",
+    "decidedAt": "2026-09-29T12:04:00Z",
+    "reason": "Confirmación explícita del caso para evaluación contractual.",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-institutional",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "hypothesis-institutional-001",
+      "sourceVersion": "none"
+    }
+  },
+  "model": {
+    "id": "model-institutional-001",
+    "caseId": "case-institutional-001",
+    "version": "1.0.0",
+    "nodes": [
+      {
+        "id": "office-3"
+      },
+      {
+        "id": "request-1"
+      }
+    ],
+    "relations": [
+      {
+        "from": "office-3",
+        "to": "request-1",
+        "type": "institutional-procedure"
+      }
+    ],
+    "decisions": [
+      "decision-institutional-001"
+    ],
+    "state": "confirmed",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-institutional",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "decision-institutional-001",
+      "sourceVersion": "none"
+    }
+  }
+}
