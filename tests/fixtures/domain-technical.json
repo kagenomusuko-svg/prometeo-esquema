@@ -1,0 +1,125 @@
+{
+  "case": {
+    "id": "case-technical-001",
+    "title": "Interrupción de un servicio",
+    "purpose": "Examinar una interrupción técnica y su condición de recuperación.",
+    "state": "confirmed",
+    "sourceDocumentIds": [
+      "document-technical-001"
+    ],
+    "hypothesisIds": [
+      "hypothesis-technical-001"
+    ],
+    "confirmedModelIds": [
+      "model-technical-001"
+    ],
+    "decisionIds": [
+      "decision-technical-001"
+    ],
+    "version": "1.0.0",
+    "createdAt": "2026-09-29T12:00:00Z",
+    "updatedAt": "2026-09-29T12:05:00Z",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-technical",
+      "recordedAt": "2026-09-29T12:05:00Z",
+      "sourceObjectId": "decision-technical-001"
+    }
+  },
+  "proposition": {
+    "id": "proposition-technical-001",
+    "fragmentId": "fragment-technical-001",
+    "text": "El servicio dejó de responder cuando el almacenamiento alcanzó su límite configurado.",
+    "modality": "asserted",
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-technical",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "fragment-technical-001"
+    }
+  },
+  "candidate": {
+    "id": "candidate-technical-001",
+    "propositionId": "proposition-technical-001",
+    "category": "condition",
+    "label": "límite de almacenamiento alcanzado",
+    "attributes": {
+      "service": "api-1",
+      "threshold": "storage-limit"
+    },
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-technical",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "proposition-technical-001"
+    }
+  },
+  "hypothesis": {
+    "id": "hypothesis-technical-001",
+    "caseId": "case-technical-001",
+    "label": "Hipótesis technical",
+    "candidateIds": [
+      "candidate-technical-001"
+    ],
+    "relationIds": [],
+    "status": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-technical",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "candidate-technical-001"
+    }
+  },
+  "decision": {
+    "id": "decision-technical-001",
+    "caseId": "case-technical-001",
+    "action": "confirm",
+    "targetObjectId": "hypothesis-technical-001",
+    "previousVersion": "none",
+    "resultingObjectId": "model-technical-001",
+    "resultingVersion": "1.0.0",
+    "decidedBy": "analyst-technical",
+    "decidedAt": "2026-09-29T12:04:00Z",
+    "reason": "Confirmación explícita del caso para evaluación contractual.",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-technical",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "hypothesis-technical-001",
+      "sourceVersion": "none"
+    }
+  },
+  "model": {
+    "id": "model-technical-001",
+    "caseId": "case-technical-001",
+    "version": "1.0.0",
+    "nodes": [
+      {
+        "id": "storage-system"
+      },
+      {
+        "id": "api-1"
+      }
+    ],
+    "relations": [
+      {
+        "from": "storage-system",
+        "to": "api-1",
+        "type": "technical-failure"
+      }
+    ],
+    "decisions": [
+      "decision-technical-001"
+    ],
+    "state": "confirmed",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-technical",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "decision-technical-001",
+      "sourceVersion": "none"
+    }
+  }
+}
