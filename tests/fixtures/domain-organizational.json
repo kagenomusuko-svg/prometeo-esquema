@@ -1,0 +1,125 @@
+{
+  "case": {
+    "id": "case-organizational-001",
+    "title": "Cambio de turnos en una unidad",
+    "purpose": "Examinar cómo una decisión de coordinación alteró la cobertura operativa.",
+    "state": "confirmed",
+    "sourceDocumentIds": [
+      "document-organizational-001"
+    ],
+    "hypothesisIds": [
+      "hypothesis-organizational-001"
+    ],
+    "confirmedModelIds": [
+      "model-organizational-001"
+    ],
+    "decisionIds": [
+      "decision-organizational-001"
+    ],
+    "version": "1.0.0",
+    "createdAt": "2026-09-29T12:00:00Z",
+    "updatedAt": "2026-09-29T12:05:00Z",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-organizational",
+      "recordedAt": "2026-09-29T12:05:00Z",
+      "sourceObjectId": "decision-organizational-001"
+    }
+  },
+  "proposition": {
+    "id": "proposition-organizational-001",
+    "fragmentId": "fragment-organizational-001",
+    "text": "La coordinación reasignó los turnos y la cobertura nocturna disminuyó.",
+    "modality": "reported",
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-organizational",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "fragment-organizational-001"
+    }
+  },
+  "candidate": {
+    "id": "candidate-organizational-001",
+    "propositionId": "proposition-organizational-001",
+    "category": "relation",
+    "label": "reasignación con efecto operativo",
+    "attributes": {
+      "unit": "unit-7",
+      "shift": "night"
+    },
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-organizational",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "proposition-organizational-001"
+    }
+  },
+  "hypothesis": {
+    "id": "hypothesis-organizational-001",
+    "caseId": "case-organizational-001",
+    "label": "Hipótesis organizational",
+    "candidateIds": [
+      "candidate-organizational-001"
+    ],
+    "relationIds": [],
+    "status": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-organizational",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "candidate-organizational-001"
+    }
+  },
+  "decision": {
+    "id": "decision-organizational-001",
+    "caseId": "case-organizational-001",
+    "action": "confirm",
+    "targetObjectId": "hypothesis-organizational-001",
+    "previousVersion": "none",
+    "resultingObjectId": "model-organizational-001",
+    "resultingVersion": "1.0.0",
+    "decidedBy": "analyst-organizational",
+    "decidedAt": "2026-09-29T12:04:00Z",
+    "reason": "Confirmación explícita del caso para evaluación contractual.",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-organizational",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "hypothesis-organizational-001",
+      "sourceVersion": "none"
+    }
+  },
+  "model": {
+    "id": "model-organizational-001",
+    "caseId": "case-organizational-001",
+    "version": "1.0.0",
+    "nodes": [
+      {
+        "id": "coordination-team"
+      },
+      {
+        "id": "night-coverage"
+      }
+    ],
+    "relations": [
+      {
+        "from": "coordination-team",
+        "to": "night-coverage",
+        "type": "organizational-change"
+      }
+    ],
+    "decisions": [
+      "decision-organizational-001"
+    ],
+    "state": "confirmed",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-organizational",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "decision-organizational-001",
+      "sourceVersion": "none"
+    }
+  }
+}
