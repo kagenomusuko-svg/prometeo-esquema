@@ -1,0 +1,125 @@
+{
+  "case": {
+    "id": "case-legal-001",
+    "title": "Incumplimiento de entrega contractual",
+    "purpose": "Examinar una obligación contractual y el retraso documentado.",
+    "state": "confirmed",
+    "sourceDocumentIds": [
+      "document-legal-001"
+    ],
+    "hypothesisIds": [
+      "hypothesis-legal-001"
+    ],
+    "confirmedModelIds": [
+      "model-legal-001"
+    ],
+    "decisionIds": [
+      "decision-legal-001"
+    ],
+    "version": "1.0.0",
+    "createdAt": "2026-09-29T12:00:00Z",
+    "updatedAt": "2026-09-29T12:05:00Z",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-legal",
+      "recordedAt": "2026-09-29T12:05:00Z",
+      "sourceObjectId": "decision-legal-001"
+    }
+  },
+  "proposition": {
+    "id": "proposition-legal-001",
+    "fragmentId": "fragment-legal-001",
+    "text": "El proveedor entregó el lote después de la fecha pactada.",
+    "modality": "asserted",
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-legal",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "fragment-legal-001"
+    }
+  },
+  "candidate": {
+    "id": "candidate-legal-001",
+    "propositionId": "proposition-legal-001",
+    "category": "event",
+    "label": "entrega tardía",
+    "attributes": {
+      "supplier": "provider-1",
+      "contract": "contract-1"
+    },
+    "state": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-legal",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "proposition-legal-001"
+    }
+  },
+  "hypothesis": {
+    "id": "hypothesis-legal-001",
+    "caseId": "case-legal-001",
+    "label": "Hipótesis legal",
+    "candidateIds": [
+      "candidate-legal-001"
+    ],
+    "relationIds": [],
+    "status": "proposed",
+    "provenance": {
+      "kind": "language-agent",
+      "actorId": "language-legal",
+      "recordedAt": "2026-09-29T12:01:00Z",
+      "sourceObjectId": "candidate-legal-001"
+    }
+  },
+  "decision": {
+    "id": "decision-legal-001",
+    "caseId": "case-legal-001",
+    "action": "confirm",
+    "targetObjectId": "hypothesis-legal-001",
+    "previousVersion": "none",
+    "resultingObjectId": "model-legal-001",
+    "resultingVersion": "1.0.0",
+    "decidedBy": "analyst-legal",
+    "decidedAt": "2026-09-29T12:04:00Z",
+    "reason": "Confirmación explícita del caso para evaluación contractual.",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-legal",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "hypothesis-legal-001",
+      "sourceVersion": "none"
+    }
+  },
+  "model": {
+    "id": "model-legal-001",
+    "caseId": "case-legal-001",
+    "version": "1.0.0",
+    "nodes": [
+      {
+        "id": "provider-1"
+      },
+      {
+        "id": "delivery-delay"
+      }
+    ],
+    "relations": [
+      {
+        "from": "provider-1",
+        "to": "delivery-delay",
+        "type": "contractual-performance"
+      }
+    ],
+    "decisions": [
+      "decision-legal-001"
+    ],
+    "state": "confirmed",
+    "provenance": {
+      "kind": "human",
+      "actorId": "analyst-legal",
+      "recordedAt": "2026-09-29T12:04:00Z",
+      "sourceObjectId": "decision-legal-001",
+      "sourceVersion": "none"
+    }
+  }
+}
